@@ -1,7 +1,7 @@
 function easyselect(parent, child) {
   return parent.querySelector(`[data-${child}]`);
 }
-const apiKey = "RGAPI-bd1ba354-316b-4a10-b0d4-1a35b03434fb";
+const apiKey = "your riot games API key ";
 
 const spells = {
   21: "Barrier",
