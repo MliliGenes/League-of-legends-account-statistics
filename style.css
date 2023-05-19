@@ -42,6 +42,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.account-lvl {
+  font-weight: 600;
+  position: absolute;
+  font-size: 1.4em;
+  color: var(--Secondary-Button);
+  background-color: var(--Primary-Button);
+  right: -10%;
+  bottom: 0;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  border-radius: 50%;
 }
 .profile-icon::before {
   border-radius: 50%;
