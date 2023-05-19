@@ -1,3 +1,7 @@
+const key = 'your key'
+const id = 'your id'
+const puuid = 'your puuid'
+
 const colors = {
   lost: "#ff000026",
   win: "#0051ff26",
@@ -54,7 +58,7 @@ let getData = {
   },
   matchsCall: function (key) {
     fetch(
-      `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/Z-s0u2EEx1f5o_k4k5tK0XnyW6RELLesX0E1O7zG7xVdBh1MBwkRcgpnhZ9XVCRAq4aANayWvBCbDQ/ids?start=0&count=20&api_key=${key}`
+      `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${key}`
     )
       .then((res) => {
         return res.json();
@@ -161,8 +165,8 @@ let getData = {
   },
 };
 getData.apicCall(
-  "fj0vDxptu9xkOvl1Ivh5_jFLFnFWXTS6z2y8zVM3dJlU5gz5Avx4BMTWUw",
-  "your-riot-games-api-key"
+  id,
+  key
 );
 function easyselect(parent, child) {
   return parent.querySelector(`[data-${child}]`);
