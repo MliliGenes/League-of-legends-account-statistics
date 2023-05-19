@@ -50,10 +50,11 @@ let getData = {
         return res.json();
       })
       .then((data) => {
-        let { profileIconId } = data;
+        let { profileIconId, summonerLevel } = data;
         let accountIconUrl = `http://ddragon.leagueoflegends.com/cdn/13.5.1/img/profileicon/${profileIconId}.png`;
-        document.querySelector("[data-favicon]").href = accountIconUrl;
-        document.querySelector("[data-icon]").src = accountIconUrl;
+        easyselect(document, "favicon").href = accountIconUrl;
+        easyselect(document, "icon").src = accountIconUrl;
+        easyselect(document, "account-lvl").textContent = summonerLevel;
       });
   },
   matchsCall: function (key) {
