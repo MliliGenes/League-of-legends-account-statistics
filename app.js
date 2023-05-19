@@ -162,7 +162,7 @@ let getData = {
 };
 getData.apicCall(
   "fj0vDxptu9xkOvl1Ivh5_jFLFnFWXTS6z2y8zVM3dJlU5gz5Avx4BMTWUw",
-  "RGAPI-bd1ba354-316b-4a10-b0d4-1a35b03434fb"
+  "your-riot-games-api-key"
 );
 function easyselect(parent, child) {
   return parent.querySelector(`[data-${child}]`);
