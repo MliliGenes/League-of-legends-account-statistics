@@ -2,7 +2,7 @@
 function easyselect(parent, child) {
   return parent.querySelector(`[data-${child}]`);
 }
-const apiKey = "RGAPI-2449e28a-a683-4f33-b283-0bfd40519c6d";
+const apiKey = "your api_key";
 
 const spells = {
   21: "Barrier",
@@ -26,9 +26,9 @@ const queueTypes = {
 const container = document.querySelector(".container");
 const template = document.querySelector("template");
 let getData = {
-  apicCall: function (puuid, id, key) {
+  apicCall: function (puuid, id) {
     fetch(
-      `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${key}`
+      `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${apiKey}`
     )
       .then((res) => {
         return res.json();
@@ -41,8 +41,8 @@ let getData = {
         easyselect(document, "rank").textContent = rank;
         easyselect(document, "wins").textContent = wins;
         easyselect(document, "losses").textContent = losses;
-        getData.iconCall(summonerName, key);
-        getData.matchsCall(puuid, key);
+        getData.iconCall(summonerName, apiKey);
+        getData.matchsCall(puuid, apiKey);
       })
       .catch((error) => {
         Toastify({
@@ -60,9 +60,9 @@ let getData = {
         }).showToast();
       });
   },
-  iconCall: function (username, key) {
+  iconCall: function (username) {
     fetch(
-      `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=${key}`
+      `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=${apiKey}`
     )
       .then((res) => {
         return res.json();
@@ -90,9 +90,9 @@ let getData = {
         }).showToast();
       });
   },
-  matchsCall: function (puuid, key) {
+  matchsCall: function (puuid) {
     fetch(
-      `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${key}`
+      `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${apiKey}`
     )
       .then((res) => res.json())
       .then((data) => {
